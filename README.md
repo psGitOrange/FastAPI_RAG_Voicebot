@@ -22,7 +22,6 @@ This project provides a **Retrieval Augmented Generation (RAG)** API that acts a
     "available_voices": {
         "en": "English (US) - Female (Ava)",
         "hi": "Hindi - Female (Swara)",
-        ...
     },
     "endpoints": {
         "/query": "POST - Retrieve query response", 

@@ -13,23 +13,20 @@ This project provides a **Retrieval Augmented Generation (RAG)** API that acts a
 * **Gradio Demo**: Interactive UI for voice input and response playback.
 
 ## How to Run
-**Run the API Server**
-The API provides endpoints to interact with the chat engine and generate speech.
+1. **Run the API Server**: The API provides endpoints to interact with the chat engine and generate speech.
 ```bash
 uvicorn app:app --port 8000 --reload
 ```
 Endpoints:
+
 `POST /query` – Retrieve query response.
 
 `POST /tts` – Generate speech from text.
 
-**Run the Gradio Voice Assistant Demo**
-
+2. **Run the Gradio Voice Assistant Demo**: Launch the Gradio demo to test the end-to-end functionality
 ```bash
 python main_demo.py
-
-alternative
-
+Or,
 uvicorn main_demo:app --port 8000 --reload
 ```
 
@@ -41,8 +38,7 @@ Accepts **voice input** from the user via microphone
 
 **Speaks** response in the selected AI generated voice 
 
-**Run Speech Recognition Test**
-Try out just the speech recognition functionality using Gradio.
+3. **Run Speech Recognition Test**: Try out speech recognition functionality using Gradio.
 
 ```bash
 python gradio_sr.py

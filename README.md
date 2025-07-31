@@ -12,22 +12,42 @@ This project provides a **Retrieval Augmented Generation (RAG)** API that acts a
 * **Text-to-Speech (TTS)**: Converts responses into natural-sounding audio with Microsoft Edge TTS.
 * **Gradio Demo**: Interactive UI for voice input and response playback.
 
-## API Overview
+## How to Run
+**Run the API Server**
+The API provides endpoints to interact with the chat engine and generate speech.
+```bash
+uvicorn app:app --port 8000 --reload
+```
+Endpoints:
+`POST /query` – Retrieve query response.
 
-### Root API
+`POST /tts` – Generate speech from text.
 
-```json
-{
-    "message": "Welcome to the RAG Query API!, Edge TTS API is running",
-    "available_voices": {
-        "en": "English (US) - Female (Ava)",
-        "hi": "Hindi - Female (Swara)",
-    },
-    "endpoints": {
-        "/query": "POST - Retrieve query response", 
-        "/tts": "POST - Generate speech from text"
-    }
-}
+**Run the Gradio Voice Assistant Demo**
+
+```bash
+python main_demo.py
+
+alternative
+
+uvicorn main_demo:app --port 8000 --reload
+```
+
+Accepts **voice input** from the user via microphone
+
+**Transcribes** audio using speech recognition
+
+**Retrieves** query response from query / chat engine
+
+**Speaks** response in the selected AI generated voice 
+
+**Run Speech Recognition Test**
+Try out just the speech recognition functionality using Gradio.
+
+```bash
+python gradio_sr.py
+Or,
+uvicorn gradio_sr:app --port 8000 --reload
 ```
 
 ## How It Works
@@ -47,13 +67,6 @@ This project provides a **Retrieval Augmented Generation (RAG)** API that acts a
 3. **Text-to-Speech**
 
    * Responses can be synthesized into audio using **Edge TTS** with customizable voices.
-
-
-## Gradio Demo
-
-* Accepts **voice input** from the user.
-* Transcribes audio using speech recognition.
-* Passes text to the RAG API and speaks the response.
 
 
 ## Tech Stack
